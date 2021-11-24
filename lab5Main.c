@@ -319,7 +319,7 @@ char *delete_space(char *str, char *ketqua)
     for (int i = 1; i < len; i++)
     {
         char c = str[i];
-        if (c == ' ' && str[i + 1] == ' ')
+        if (c == ' ' && str[i - 1] == ' ')
         {
             continue;
         } else
