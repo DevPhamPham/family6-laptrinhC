@@ -69,17 +69,11 @@ void Continues(int *z)
     }
 }
 
-void Q1()
-{
-}
+void Q1();
 
-void Q2()
-{
-}
+void Q2();
 
-void Q3()
-{
-}
+void Q3();
 
 //   start khoa cau 4 va cau 11
 char *delete_space(char *str, char *ketqua);
