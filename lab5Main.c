@@ -173,8 +173,8 @@ int main()
         printf("\n3: Input a string represent a full name ,split and print the first name and the last name");
         printf("\n4: Input a string and normalize it");
         printf("\n5: Input two string s1 and s2, concatenating s2 to s1.");
-        printf("\n6: Input a string and check whether a chacracter appears or not .If yes ,return  the first position");
-        printf("\n7: Input a string and check whether a chacracter appears or not .If yes ,return  all appearing  positions");
+        printf("\n6: Input a string and check whether a character appears or not .If yes ,return  the first position");
+        printf("\n7: Input a string and check whether a character appears or not .If yes ,return  all appearing  positions");
         printf("\n8: Input a string and check whether a word appear or not. If yes, return the fist position");
         printf("\n9: Input two string s1 and s2, return the first position where s2 appears in s1. ");
         printf("\n10: Input two string s1, s2 and position. Then insert s2 to s1 from this position.");
@@ -253,6 +253,7 @@ int main()
 }
 void Q1()
 {
+    fflush(stdin);
    char chuoi[SIZE];
 
 
@@ -267,6 +268,7 @@ void Q1()
 }
 void Q2()
 {
+    fflush(stdin);
 
     char chuoi[SIZE];
 
@@ -278,6 +280,7 @@ void Q2()
 }
 void Q3()
 {
+    fflush(stdin);
     char str[SIZE];
 
     char y[SIZE];
