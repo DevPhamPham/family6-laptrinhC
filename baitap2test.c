@@ -3,6 +3,8 @@
 #include <ctype.h>
 #define SIZE 100
 
+//Hello Moi Nguoi
+
 char *delete_space(char *str, char *ketqua);
 int main()
 {
