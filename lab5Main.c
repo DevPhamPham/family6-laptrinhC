@@ -31,7 +31,13 @@ void nhapchuoi(char chuoi[SIZE])
 
 }
 
-
+void xoaXuongDong(char x[])
+{
+	size_t len = strlen(x);
+	if(x[len-1]=='\n'){
+		x[len-1]='\0';
+	}
+}
 
 void strreverse(char chuoi[])
 {
@@ -143,13 +149,10 @@ void Q7()
     if (check == 0)printf("Khong co ton tai ki tu");
 }
 //end
-void Q8()
-{
-}
 
-void Q9()
-{
-}
+//Quốc câu 8 và câu 9
+void Q8();
+void Q9();
 
 void Q10();
 
@@ -356,6 +359,61 @@ void Q5()
 	for (i = 0; i < l1 + l2; i ++)
 		printf("%c", str3[i]);
 }
+
+void Q8()
+{
+    fflush(stdin);
+    char str[SIZE];
+    char c[SIZE];
+    int n,i;
+    printf("\n\nNhap chuoi cua ban: ");
+    fgets(str, SIZE, stdin);
+
+    n =  getLength(str);
+
+    printf("\n\nNhap chu cai ban muon tim ");
+    fgets(c,SIZE,stdin);
+
+    i = 0;
+    while (i < n)
+    {
+        if(c[0]==str[i])
+        {
+            printf("\n\nKi tu %c xuat hien lan dau tien tai vi tri %d",c[0],i);
+            return ;
+        }
+
+        i++;
+    }
+    printf("\n\nKi tu khong xuat hien trong chuoi.");
+    
+    return ;
+}
+
+void Q9()
+{
+    fflush(stdin);
+    char chuoi[50];
+	char chuoi_con[50];
+	
+	printf("Nhap vao chuoi: ");
+	fgets(chuoi, sizeof(chuoi), stdin);
+	xoaXuongDong(chuoi);
+	
+	printf("Nhap vao chuoi can tim: ");
+	fgets(chuoi_con, sizeof(chuoi_con), stdin);
+	xoaXuongDong(chuoi_con);
+	
+	char *kq = strstr(chuoi, chuoi_con);
+	if(kq!=NULL){
+		printf("Tim thay chuoi con!");
+		printf("\n");
+		printf("%s", kq);
+	}else{
+		printf("Khong tim thay chuoi con!");
+	}
+}
+
 
 void Q10()
 {
