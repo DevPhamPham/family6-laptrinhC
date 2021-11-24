@@ -3,6 +3,9 @@
 #include<time.h>
 #define MAX 100
 #define SIZE 10
+
+//Hello
+// khoaaaaaa
 void Continues(int *z)
 {
     printf("\nBan co muon tiep tuc? (yes(1)/no(0):");
