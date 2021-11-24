@@ -172,12 +172,12 @@ int main()
         printf("\n2: Tim phan tu lon nhat trong mang");
         printf("\n3: Tim phan tu be nhat trong mang");
         printf("\n4: Input a string and normalize it");
-        printf("\n5: Nhap hai chuoi s1 va s2, gop s2 vao s1");
+        printf("\n5: Input two string s1 and s2, concatenating s2 to s1.");
         printf("\n6: Tinh tong cac phan tu chan trong mang");
         printf("\n7: Dao nguoc mang ma khong su dung mang khac");
         printf("\n8: Input a string and check whether a word appear or not. If yes, return the fist position");
         printf("\n9: Input two string s1 and s2, return the first position where s2 appears in s1. ");
-        printf("\n10: Xoa tat ca cac phan tu trung lap khoi mot mang");
+        printf("\n10: Input two string s1, s2 and position. Then insert s2 to s1 from this position.");
         printf("\n11: Input a string and two integer numbers,named nand position.Then delete n char from position of input string.");
         printf("\n\t\tMoi ban cac so tren (Vui long chon dung neu khong se bi loi chuong trinh): \t");
         scanf("%d", &z);
