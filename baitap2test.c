@@ -1,10 +1,10 @@
-<<<<<<< HEAD
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #define SIZE 100
 
 //Hello Moi Nguoi
+//Tui dang test thu
 
 char *delete_space(char *str, char *ketqua);
 int main()
@@ -43,7 +43,3 @@ char *delete_space(char *str, char *ketqua)
         }
     }
     return ketqua;
-}
-=======
-hello
->>>>>>> a4dcb1722af9445d54e653fadd2ccc7981baada0
