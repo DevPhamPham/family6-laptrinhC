@@ -312,10 +312,15 @@ char *delete_space(char *str, char *ketqua)
 {
     int pos = 0;
     const int len = strlen(str);
-    if (str[0] != ' ')
+    printf("\n\n%d\n\n",len);
+    if (str[0] != ' ' && str[0]<64)
     {
         ketqua[pos++] = str[0] - 32;
+    } else if (str[0] != ' ')
+    {
+        ketqua[pos++] = str[0];
     }
+    
     for (int i = 1; i < len; i++)
     {
         char c = str[i];
@@ -323,9 +328,11 @@ char *delete_space(char *str, char *ketqua)
         {
             continue;
         } else
-        if (str[i - 1] == ' ' && c != ' ' && i < len - 1)
-            ketqua[pos++] = c - 32;
-        else
+        if (str[i - 1] == ' ' && c != ' ' && i < len - 2 && c>63)
+            ketqua[pos++] = c;
+     else if (str[i - 1] == ' ' && c != ' ' && i < len - 2 && c<63){
+         ketqua[pos++] = c-  32;
+        } else
         {
             char a = tolower(c);
             ketqua[pos++] = a;
