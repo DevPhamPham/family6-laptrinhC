@@ -87,14 +87,66 @@ void Q11();
 
 void Q5();
 
+////Phượng
+int char_position(char str[], char c)
+{
+	int i;
+	int pos = 0;
+	for (i=0; i< strlen(str); i++)
+	{
+		if (str[i] == c)
+		{
+			pos	= i+1;
+			break;
+		}
+	}
+	return pos;
+}
+
 void Q6()
 {
+    char str[SIZE];
+    char c;
+    printf("Moi nhap mot chuoi co chieu dai nho hon %d: ", SIZE);
+    fflush(stdin);
+    fgets(str, SIZE, stdin);
+
+    printf("Moi nhap ki tu ban muon tim: ");
+	scanf("%c", &c);
+
+    if (char_position(str,c) == 0)
+	{
+		printf("Ki tu %c khong xuat hien trong chuoi %s\n", c, str);
+	} else
+	{
+		printf("Ki tu %c xuat hien tai vi tri thu %d trong chuoi %s \n", c, char_position(str,c), str);
+	}
 }
 
 void Q7()
 {
-}
+    char str[SIZE];
+    char c;
+    printf("Moi nhap mot chuoi co chieu dai nho hon %d: ", SIZE);
+    fflush(stdin);
+    fgets(str, SIZE, stdin);
 
+    printf("Moi nhap ki tu ban muon tim: ");
+	scanf("%c", &c);
+
+    int len = strlen(str);
+    int check = 0;
+    for(int i = 0; i < len; i++)
+    {
+        if (str[i]==c)
+        {
+            check = 1;
+            printf("\nKi tu xuat hien o cac vi tri %d",i+1);
+        }
+    }
+    if (check == 0)printf("Khong co ton tai ki tu");
+}
+//end
 void Q8()
 {
 }
