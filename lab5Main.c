@@ -31,9 +31,7 @@ void Q4();
 void Q11();
 //        end khoa
 
-void Q5()
-{
-}
+void Q5();
 
 void Q6()
 {
@@ -69,7 +67,7 @@ int main()
         printf("\n2: Tim phan tu lon nhat trong mang");
         printf("\n3: Tim phan tu be nhat trong mang");
         printf("\n4: Chinh lai chuoi viet hoa chu dau va xoa khoang trang thua");
-        printf("\n5: Tinh tong cac phan tu am trong mang");
+        printf("\n5: Nhap hai chuoi s1 va s2, gop s2 vao s1");
         printf("\n6: Tinh tong cac phan tu chan trong mang");
         printf("\n7: Dao nguoc mang ma khong su dung mang khac");
         printf("\n8: Xoa phan tu o vi tri x");
@@ -212,4 +210,30 @@ void Q11()
     }
     printf("mang sao khi xoa la:%s\n", stringphu);
 
+}
+
+void Q5()
+{
+	fflush(stdin);
+	char str1[SIZE], str2[SIZE], str3[SIZE];
+	
+	printf("Enter the first string: ");
+	fgets(str1, SIZE, stdin);
+	printf("Enter the second string: ");
+	fgets(str2, SIZE, stdin);
+	
+	int l1 = getLength(str1), l2 = getLength(str2);
+	
+	int i, j = 0;
+	for (i = 0; i < l1 + l2; i ++)
+		if(i < l1)
+			str3[i] = str1[i];
+		else
+		{
+			str3[i] = str2[j];
+			j ++;
+		}
+	
+	for (i = 0; i < l1 + l2; i ++)
+		printf("%c", str3[i]);
 }
