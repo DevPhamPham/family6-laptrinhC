@@ -69,7 +69,7 @@ int main()
         printf("\n1: Tinh 5 bieu thuc");
         printf("\n2: Tim phan tu lon nhat trong mang");
         printf("\n3: Tim phan tu be nhat trong mang");
-        printf("\n4: Tinh tong cac phan tu trong mang");
+        printf("\n4: Chinh lai chuoi viet hoa chu dau va xoa khoang trang thua");
         printf("\n5: Tinh tong cac phan tu am trong mang");
         printf("\n6: Tinh tong cac phan tu chan trong mang");
         printf("\n7: Dao nguoc mang ma khong su dung mang khac");
