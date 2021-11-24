@@ -2,6 +2,60 @@
 #include <string.h>
 #include <ctype.h>
 #define SIZE 100
+//Guu câu 1 -> 3
+int getLength(const char*);
+
+int getLength(const char* str)
+{
+	if(str[0] == '\0') return 0;
+	int length = 0;
+	while(str[length] != '\0')
+	{
+		length = length + 1;
+	}
+	return length - 1; 
+}
+
+void nhapchuoi(char chuoi[MAX])
+{  
+    do
+    {
+        printf("\n\nNhap : ");
+
+        gets(chuoi);
+    }
+    
+    while ( !(strlen(chuoi) > 0 && strlen(chuoi) < MAX));
+
+}
+
+
+
+void strreverse(char chuoi[])
+{   
+    
+    int i = 0;
+    int length ;
+    for(length = 0; chuoi[length] != '\0'; length++)
+    {
+
+    }
+        while(i < length)
+        {
+            length--;
+
+            char temp = chuoi[i];
+
+            chuoi[i] = chuoi[length];
+
+            chuoi[length] = temp;
+
+            ++i;
+
+        }
+        printf("\n\nCau 2 : Chuoi ky tu khi viet nguoc la %s",chuoi);
+}
+
 
 void Continues(int *z)
 {
@@ -54,6 +108,13 @@ void Q10();
 int main()
 {
     int z;
+    char chuoi[MAX];
+	
+    char str[MAX];
+
+    char y[MAX];
+    
+    char x[MAX];
 
     do
     {
@@ -144,7 +205,39 @@ int main()
 
     return 0;
 }
+void Q1()
+{
+   printf("\n\nNhap vao chuoi ky tu can dem: ");
 
+   printf("\n\nNhap : ");
+
+   fgets(chuoi, MAX, stdin);
+
+   printf("\n\nSo ky tu trong chuoi la : %d\n", getLength(chuoi));
+}
+void Q2()
+{
+    printf("\n\nNhap vao chuoi ki tu muon dao nguoc !!");
+
+    nhapchuoi(chuoi);
+
+    strreverse(chuoi);
+}
+void Q3()
+{
+    printf("\n\nNhap vao ho va ho dem cua ban !!");
+
+    nhapchuoi(str);
+
+    printf("\n\nNhap vao ten cua ban !!");
+
+    nhapchuoi(y);
+
+
+    strcpy(x , str);
+
+    printf("Ho va Ten day du cua ban la : %s\n", strcat(x ,y ));
+}
 void Q4()
 {
     fflush(stdin);
