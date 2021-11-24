@@ -18,7 +18,7 @@ int getLength(const char* str)
 	return length - 1; 
 }
 
-void nhapchuoi(char chuoi[MAX])
+void nhapchuoi(char chuoi[SIZE])
 {  
     do
     {
@@ -27,7 +27,7 @@ void nhapchuoi(char chuoi[MAX])
         gets(chuoi);
     }
     
-    while ( !(strlen(chuoi) > 0 && strlen(chuoi) < MAX));
+    while ( !(strlen(chuoi) > 0 && strlen(chuoi) < SIZE));
 
 }
 
