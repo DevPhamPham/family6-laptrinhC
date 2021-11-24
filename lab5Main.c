@@ -24,10 +24,13 @@ void Q2()
 void Q3()
 {
 }
-//    khoa
 
+//   start khoa cau 4 va cau 11
 char *delete_space(char *str, char *ketqua);
 void Q4();
+void Q11();
+//        end khoa
+
 void Q5()
 {
 }
@@ -52,10 +55,6 @@ void Q10()
 {
 }
 
-void Q11()
-{
-}
-
 int main()
 {
     int z;
@@ -63,7 +62,7 @@ int main()
     do
     {
         printf("\n\t\t\t\t\t\t Phuong phap lap trinh_N16T01_HK1_2122_501042 \n");
-        printf("\n\t\t\t\t\t BAI TAP NHOM 6 LAB4 \n");
+        printf("\n\t\t\t\t\t BAI TAP NHOM 6 LAB5 \n");
         printf("\nChuong trinh gom cac bai tap sau: ");
         printf("\n0. Ket thuc");
         printf("\n1: Tinh 5 bieu thuc");
@@ -76,7 +75,7 @@ int main()
         printf("\n8: Xoa phan tu o vi tri x");
         printf("\n9: Dem tong so phan tu trung lap trong mot mang");
         printf("\n10: Xoa tat ca cac phan tu trung lap khoi mot mang");
-        printf("\n11: Dem tan so cua tung phan tu trong mang");
+        printf("\n11: Nhap chuoi, vi tri xoa ki tu va so luong ki tu can xoa.");
         printf("\n\t\tMoi ban cac so tren (Vui long chon dung neu khong se bi loi chuong trinh): \t");
         scanf("%d", &z);
 
@@ -154,11 +153,12 @@ void Q4()
 {
     fflush(stdin);
     char x[SIZE], x1[SIZE];
-    printf("nhap chuoi can xu li:");
+    printf("\nBai 4: nhap chuoi can xu li:");
     fgets(x, SIZE, stdin);
-    // int dai = strlen(x);
     printf("mang vua nhap la:%s\n", x);
-    printf("mang sau khi xoa khoang trang:%s\n", delete_space(x, x1));
+    int dai = strlen(delete_space(x, x1));
+    printf("mang sau khi chinh sua:%s\n", delete_space(x, x1));
+    fflush(stdin);
 }
 char *delete_space(char *str, char *ketqua)
 {
@@ -179,9 +179,37 @@ char *delete_space(char *str, char *ketqua)
             ketqua[pos++] = c - 32;
         else
         {
-            // char a = tolower(c);
-            ketqua[pos++] = c;
+            char a = tolower(c);
+            ketqua[pos++] = a;
         }
     }
     return ketqua;
+}
+void Q11()
+{
+    fflush(stdin);
+    char x[SIZE], x1[SIZE];
+    printf("\nBai 4: nhap chuoi can xu li:");
+    fgets(x, SIZE, stdin);
+    printf("mang vua nhap la:%s\n", x);
+    int dai = strlen(x);
+    int n, vt;
+    printf("\nNhap vi tri can xoa: ");
+    scanf("%d", &vt);
+    printf("\nnhap so luong can xoa: ");
+    scanf("%d", &n);
+    for (int j = 1; j <= n; j++)
+    {
+        for (int i = vt; i < dai - 2; i++)
+        {
+            x[i] = x[i + 1];
+        }
+        dai--;
+    }
+    char stringphu[SIZE];
+    for (int i = 0; i <dai-1;i++){
+        stringphu[i] = x[i];
+    }
+    printf("mang sao khi xoa la:%s\n", stringphu);
+
 }
