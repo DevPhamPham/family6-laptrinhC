@@ -2,7 +2,9 @@
 #include <string.h>
 #include <ctype.h>
 #define SIZE 100
+
 //Guu câu 1 -> 3
+
 int getLength(const char*);
 
 int getLength(const char* str)
@@ -160,13 +162,8 @@ void Q10();
 int main()
 {
     int z;
-    char chuoi[MAX];
 	
-    char str[MAX];
 
-    char y[MAX];
-    
-    char x[MAX];
 
     do
     {
@@ -258,17 +255,24 @@ int main()
     return 0;
 }
 void Q1()
-{
+{ 
+   char chuoi[SIZE];
+	
+
+	
    printf("\n\nNhap vao chuoi ky tu can dem: ");
 
    printf("\n\nNhap : ");
 
-   fgets(chuoi, MAX, stdin);
+   fgets(chuoi, SIZE, stdin);
 
    printf("\n\nSo ky tu trong chuoi la : %d\n", getLength(chuoi));
 }
 void Q2()
-{
+{   
+	
+    char chuoi[SIZE];
+	
     printf("\n\nNhap vao chuoi ki tu muon dao nguoc !!");
 
     nhapchuoi(chuoi);
@@ -276,7 +280,13 @@ void Q2()
     strreverse(chuoi);
 }
 void Q3()
-{
+{   
+    char str[SIZE];
+
+    char y[SIZE];
+    
+    char x[SIZE];	
+
     printf("\n\nNhap vao ho va ho dem cua ban !!");
 
     nhapchuoi(str);
