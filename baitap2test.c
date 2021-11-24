@@ -489,9 +489,6 @@ int main()
                 Q11(a,n);
                 break;
 
-            case 12:
-                Q12();
-                break;
             default:
                 printf("\n\n\t\t\t vui long chon lai.\n\n");
         }
