@@ -8,6 +8,7 @@ int main()
 {
 
     printf("world");
+    printf("hello world day la khoa");
     return 0;
 }
 
