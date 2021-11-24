@@ -49,9 +49,7 @@ void Q9()
 {
 }
 
-void Q10()
-{
-}
+void Q10();
 
 int main()
 {
@@ -183,6 +181,66 @@ char *delete_space(char *str, char *ketqua)
     }
     return ketqua;
 }
+
+void Q5()
+{
+	fflush(stdin);
+	char str1[SIZE], str2[SIZE], str3[SIZE];
+	
+	printf("Enter the first string: ");
+	fgets(str1, SIZE, stdin);
+	printf("Enter the second string: ");
+	fgets(str2, SIZE, stdin);
+	
+	int l1 = getLength(str1), l2 = getLength(str2);
+	
+	int i, j = 0;
+	for (i = 0; i < l1 + l2; i ++)
+		if(i < l1)
+			str3[i] = str1[i];
+		else
+		{
+			str3[i] = str2[j];
+			j ++;
+		}
+	
+	for (i = 0; i < l1 + l2; i ++)
+		printf("%c", str3[i]);
+}
+
+void Q10()
+{
+	fflush(stdin);
+	char str1[SIZE], str2[SIZE], str3[SIZE], pos;
+	
+	printf("Enter the first string: ");
+	fgets(str1, SIZE, stdin);
+	printf("Enter the second string: ");
+	fgets(str2, SIZE, stdin);
+	
+	printf("Enter the insert position: ");
+	scanf("%d", &pos);
+	
+	int l1 = getLength(str1), l2 = getLength(str2), i, j = 0;
+	
+	for (i = 0; i < l1 + l2; i ++)
+		if (i < pos)
+			str3[i] = str1[i];
+		else if (i < pos + l2)
+		{
+			str3[i] = str2[j];
+			j ++;
+		}
+		else
+		{
+			str3[i] = str1[pos];
+			pos ++;
+		}
+
+	for (i = 0; i < l1 + l2; i ++)
+		printf("%c", str3[i]);
+}
+
 void Q11()
 {
     fflush(stdin);
@@ -210,30 +268,4 @@ void Q11()
     }
     printf("mang sao khi xoa la:%s\n", stringphu);
 
-}
-
-void Q5()
-{
-	fflush(stdin);
-	char str1[SIZE], str2[SIZE], str3[SIZE];
-	
-	printf("Enter the first string: ");
-	fgets(str1, SIZE, stdin);
-	printf("Enter the second string: ");
-	fgets(str2, SIZE, stdin);
-	
-	int l1 = getLength(str1), l2 = getLength(str2);
-	
-	int i, j = 0;
-	for (i = 0; i < l1 + l2; i ++)
-		if(i < l1)
-			str3[i] = str1[i];
-		else
-		{
-			str3[i] = str2[j];
-			j ++;
-		}
-	
-	for (i = 0; i < l1 + l2; i ++)
-		printf("%c", str3[i]);
 }
