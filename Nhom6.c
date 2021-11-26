@@ -2,10 +2,24 @@
 #include<stdlib.h>
 #include<time.h>
 #include <math.h>
+#include <stdbool.h>
 #define MAX 100
 #define SIZE 10
 
-
+//Hàm nhập vào số n cho các câu không phải là mảng
+void EnterN(int *n)
+{
+     do
+    {
+            
+        printf("\n\nEnter n : ");
+        scanf("%d",&*n);
+        if (*n <= 0)
+        {
+            printf("\nInvalid number. Please try again!!");
+        }
+    } while (*n <= 0);
+}
 
 void Continues(int *z)
 {
@@ -273,13 +287,7 @@ void Q4(int a[], int n)
 
 void Q5(int a[], int n)
 {
-    int i, sum = 0;
-    for(i = 0;i<= n;i++){
-            if (a[i] < 0){
-                sum = sum + a[i];
-            }
-    }
-    printf("\nSum all non-positive numbers : %d",sum);
+    ;
 }
 
 void Q6(int a[], int n)
@@ -294,37 +302,73 @@ void Q6(int a[], int n)
     printf("\nSum all even numbers : %d",sum);
 }
 
-void Q7(int a[], int n)
+bool Armstrong(int n)
 {
-    int i;
-	printf("\nQuestion 7:");
-    for(i = 0; i < n/2 ; i++)
+    int Du, Sum = 0, Temp = n;
+    while (n)
     {
-        int t;
-        t = a[i];
-        a[i] = a[n- i - 1];
-        a[n-i -1] = t;
+        Du = n % 10;
+        Sum += Du*Du*Du;
+        n/=10;
     }
-    printf("\nNew Array :");
-    for(i = 0; i < n; i++){
-        printf("\t%d",a[i]);
+    if (Temp == Sum )
+    {
+        return true;
+    } else
+    {
+        return false;
     }
 }
 
-void Q8(int a[], int n)
+void Q7()
 {
-    int i, k;
-    printf("\nQuestion 8:");
-    printf("Hay nhap vi tri k muon xoa:");
-    scanf("%d",&k);
-    for(i = k; i < n; i++)
+    int n;
+    printf("\n\nAll armstrong number between 1 to n");
+    EnterN(&n);
+    int i = 1;
+    while (i <= n)
     {
-        a[i] = a[i+1];
+        if (Armstrong(i) == true)
+        {
+            printf("%d \t",i);
+        }
+        i++;
+    }  
+}
+
+bool Perfect(int n)
+{
+    int i = 1, Sum = 0, Temp = n;
+    while (i < n)
+    {
+        if(n % i == 0)
+        {
+            Sum += i;
+        }
+        i++;
     }
-    n--;
-    printf("New Array:");
-    for(i = 0; i < n; i++){
-        printf("\t%d",a[i]);
+    if (Temp == Sum )
+    {
+        return true;
+    } else
+    {
+        return false;
+    }
+}
+
+void Q8()
+{
+    int n;
+    printf("\n\nAll perfect number between 1 to n");
+    EnterN(&n);
+    int i = 1;
+    while (i <= n)
+    {
+        if (Perfect(i) == true)
+        {
+            printf("%d \t",i);
+        }
+        i++;
     }
 }
 
@@ -434,78 +478,30 @@ void Q12()
 
 void Q13(int a[], int n)
 {
-
-    int Even[n], Odd[n];
-    int i,e,o;      // e là biến đếm số phần tử của hàm số chẵn. o là biến đếm của hàm số lẻ.
-    i = e = o = 0;
-
+    printf("\n\nSum of all numbers: ");
+    int i = 0, Sum = 0;
     while (i < n)
     {
-        if (a[i] % 2 == 0)
-        {
-            Even[e++] = a[i];
-        }else
-        {
-            Odd[o++] = a[i];
-        }
+        Sum += a[i];
         i++;
     }
-
-    XuatMang(Even,e);
-    XuatMang(Odd,o);
-
-
+    printf("\n\nSum: %d", Sum);
 }
 
 void Q14(int a[], int n)
 {
-
-    int i = 0, d = 0, x;
-
-    printf("\n\nNhap so muon tim: ");
-    scanf("%d",&x);
-
-    while (i < n)
-    {
-        if(a[i]== x)
-        {
-            printf("\n\nSo ban muon tim xuat hien tai vi tri a[%d]",i);
-            d = 1;
-        }
-        i++;
+    int i, sum = 0;
+    for(i = 0;i<= n;i++){
+            if (a[i] < 0){
+                sum = sum + a[i];
+            }
     }
-    if(d == 0)
-    {
-        printf("\n\n Trong mang khong co phan tu co gia tri bang %d",x);
-    }
-
+    printf("\nSum all non-positive numbers : %d",sum);
 }
 
 void Q15(int a[], int n)
 {
-    printf("\n\nQuestion 15: Write a program to sort array elements in ascending order");
-
-    int i = 0,temp;
-    int b[n];
-
-    copyMang(a,b,n);
-
-    while (i < n)
-    {
-        int j = 0;
-        while (j < n)
-        {
-            if (b[j] > b[j + 1])
-            {
-                temp = b[j];
-                b[j] = b[j + 1];
-                b[j + 1] = temp;
-            }
-            j++;
-        }
-        i++;
-    }
-    XuatMang(b,n);
+    
 
 }
 
@@ -719,43 +715,7 @@ void Q19(int c[][MAX], int d[][MAX])
 
 void Q20()
 {
-	int i, j;
-
-	int a[SIZE][SIZE], transpose[SIZE][SIZE], r, c;
-	printf("Enter rows and columns: ");
-	scanf("%d %d", &r, &c);
-
-	printf("\nEnter matrix elements:\n");
-	for (i = 0; i < r; ++i)
-		for (j = 0; j < c; ++j)
-		{
-		printf("Enter element a%d%d: ", i + 1, j + 1);
-		scanf("%d", &a[i][j]);
-		}
-
-	printf("\nEntered matrix: \n");
-	for (i = 0; i < r; ++i)
-		for (j = 0; j < c; ++j)
-		{
-		printf("%d  ", a[i][j]);
-		if (j == c - 1)
-		printf("\n");
-		}
-
-	for (i = 0; i < r; ++i)
-		for (j = 0; j < c; ++j)
-		{
-		transpose[j][i] = a[i][j];
-		}
-
-	printf("\nTranspose of the matrix:\n");
-	for (i = 0; i < c; ++i)
-		for (j = 0; j < r; ++j)
-		{
-		printf("%d  ", transpose[i][j]);
-		if (j == r - 1)
-		printf("\n");
-		}
+	
 
 }
 
@@ -816,6 +776,75 @@ void Q21()
 
 }
 
+void Q24(int a[], int n)
+{
+    printf("\n\nQuestion 24: Write a program to sort array elements in ascending order");
+
+    int i = 0,temp;
+
+    while (i < n)
+    {
+        int j = 0;
+        while (j < n)
+        {
+            if (a[j] > a[j + 1])
+            {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+            j++;
+        }
+        i++;
+    }
+    XuatMang(a,n);
+
+}
+
+void Q29()
+{
+	int i, j;
+
+	int a[MAX][MAX], transpose[MAX][MAX], r, c;
+	printf("Enter rows :  ");
+	scanf("%d", &r);
+    printf("Enter columns: ");
+	scanf("%d", &c);
+
+	printf("\nEnter matrix elements:\n");
+	for (i = 0; i < r; ++i)
+		for (j = 0; j < c; ++j)
+		{
+		printf("Enter element a%d%d: ", i + 1, j + 1);
+		scanf("%d", &a[i][j]);
+		}
+
+	printf("\nEntered matrix: \n");
+	for (i = 0; i < r; ++i)
+		for (j = 0; j < c; ++j)
+		{
+		printf("%d  ", a[i][j]);
+		if (j == c - 1)
+		printf("\n");
+		}
+
+	for (i = 0; i < r; ++i)
+		for (j = 0; j < c; ++j)
+		{
+		transpose[j][i] = a[i][j];
+		}
+
+	printf("\nTranspose of the matrix:\n");
+	for (i = 0; i < c; ++i)
+		for (j = 0; j < r; ++j)
+		{
+		printf("%d  ", transpose[i][j]);
+		if (j == r - 1)
+		printf("\n");
+		}
+
+}
+
 int main()
 {
     int n, m, z;
@@ -835,22 +864,25 @@ int main()
     printf("\n4: Tinh tong cac phan tu trong mang");
     printf("\n5: Tinh tong cac phan tu am trong mang");
     printf("\n6: Tinh tong cac phan tu chan trong mang");
-    printf("\n7: Dao nguoc mang ma khong su dung mang khac");
-    printf("\n8: Xoa phan tu o vi tri x");
+    printf("\n7: Write a C function to print all Armstrong between 1 to n.");
+    printf("\n8: Write a C function to print all Perfect between 1 to n.");
     printf("\n9: Dem tong so phan tu trung lap trong mot mang");
     printf("\n10: Xoa tat ca cac phan tu trung lap khoi mot mang");
     printf("\n11: Dem tan so cua tung phan tu trong mang");
     printf("\n12: Gop hai mang lai voi nhau");
-    printf("\n13: Tach so chan so le ra 2 mang khac nhau");
-    printf("\n14: Tim kiem phan tu nhap vao");
+    printf("\n13: Write function to sum all number of an integer array.");
+    printf("\n14: Write function to sum all non- positive number of an integer array.");
     printf("\n15: Sap xep mang tang dan");
     printf("\n16: Cong hai ma tran");
     printf("\n17: Tru hai ma tran");
-    printf("\n18: Convert Demical to Binary number system.");
+    printf("\n18: Convert Decimal to Binary number system.");
     printf("\n19: Kiem tra hai ma tran co bang nhau khong");
     printf("\n20: Tim chuyen vi cua mot ma tran");
     printf("\n21: Tim dinh uoc cua ma tran");
+    printf("\n24: Write to sort array elements in ascending order.");
+    printf("\n29: Write program to find transpope of a matrix.");
     printf("\n\t\tMoi ban cac so tren (Vui long chon dung neu khong se bi loi chuong trinh): \t");
+
     scanf("%d", &z);
 
 
@@ -897,15 +929,11 @@ int main()
                 break;
 
             case 7:
-                NhapSo(&n);
-                NhapMang(a,n);
-                Q7(a,n);
+                Q7();
                 break;
 
             case 8:
-                NhapSo(&n);
-                NhapMang(a,n);
-                Q8(a,n);
+                Q8();
                 break;
 
             case 9:
@@ -967,6 +995,17 @@ int main()
             case 21:
                 Q21();
                 break;
+
+            case 24:
+                NhapSo(&n);
+                NhapMang(a,n);
+                Q24(a,n);
+                break;
+
+            case 29:
+                Q29();
+                break;
+            
             default:
                 printf("\n\n\t\t\t vui long chon lai.\n\n");
         }
