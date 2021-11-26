@@ -327,62 +327,39 @@ void Q8(int a[], int n)
     }
 }
 
-void Q9(int a[], int n)
+void Q9()
 {
-    int cnt=0,try=0;
-    int j;
-    printf("\nQuestion 9:");
-    for (int i = 0; i < n - 1; i++)
+    int n, s = 0, f = 0;
+    printf("\nBai 9: doi so thap phan ra nhi phan");
+    printf("\nNhap n: ");
+    scanf("%d", &n);
+    while (n != 0)
     {
-        int j = i + 1;
-        try = 0;
-        while (j < n)
+        if (n % 2 == 0)
         {
-            if (a[i] == a[j])
-            {
-                for (int k = j; k < n - 1; k++)
-                    a[k] = a[k + 1];
-                n--;
-                try++;
-            }
-            else
-            {
-                j++;
-            }
+            f++;
         }
-        if (j == n)
+        else
         {
-            if (try > 0)
-            {
-                cnt++;
-            }
+            s = s + (n % 2) * pow(10, f);
+            f++;
         }
+        n /= 2;
     }
-    printf("\nTotal number of duplicate elements found in array = %d", cnt);
+    printf("\n\tSo nhi phan la: %d\n", s);
 }
 
-void Q10(int a[],int n )
+void Q10()
 {
-    int i, j, k;
-     printf("\nQuestion 10:");
-    for (i = 0; i < n; i++)
-     {
-        for (j = i + 1;j < n; j++)
-        {
-            if(a[i] == a[j])
-            {
-                for(k=j; k < n - 1; k++)
-                {
-                    a[k] = a[k + 1];
-                }
-                n--;
-                j--;
-            }
-        }
-     }
-    printf("New Array:");
-    for(i = 0; i < n; i++)
-        printf("\t%d",a[i]);
+    int days, weeks = 0, years = 0, day = 0;
+    printf("\nBAI 4:\nnhap so ngay: ");
+    scanf("%d", &days);
+    years = days / 365;
+    weeks = (days - years * 365) / 7;
+    day = days - years * 365 - weeks * 7;
+    printf("\nyears: %d", years);
+    printf("\nweeks: %d", weeks);
+    printf("\nday: %d", day);
 }
 
 void Q11(int a[], int n)
@@ -697,38 +674,7 @@ void Q17(int c[][MAX], int d[][MAX])
 
 void Q18(int c[][MAX], int d[][MAX])
 {
-    printf("\nQuestion 18: ");
-	int ca, ra, cb, rb;
-	int i = 0, j, l;
 
-	NhapHangCot(&ca, &ra, &cb , &rb);
-
-	if (ca != rb)
-    {
-        printf("\n\nPhep nhan hai ma tran khong xac dinh");
-        return;
-    }
-
-	printf("\nNhap mang thu nhat:");
-	NhapMang2C(c,ra,ca);
-	printf("\nNhap mang thu hai:");
-    NhapMang2C(d,rb,cb);
-
-    int E[MAX][MAX];
-	printf("Ket qua phep nhan la:\n");
-    for (i = 0; i < rb; i ++)
-    {
-		for (j = 0; j < cb; j ++)
-		{
-			E[i][j] = 0;
-			for (l = 0; l < ca; l ++)
-			{
-				E[i][j] += c[i][l] * d[l][j];
-			}
-			printf("%5d", E[i][j]);
-		}
-	printf("\n");
-	}
 }
 
 void Q19(int c[][MAX], int d[][MAX])
@@ -899,7 +845,7 @@ int main()
     printf("\n15: Sap xep mang tang dan");
     printf("\n16: Cong hai ma tran");
     printf("\n17: Tru hai ma tran");
-    printf("\n18: Nhan hai ma tran");
+    printf("\n18: Convert Demical to Binary number system.");
     printf("\n19: Kiem tra hai ma tran co bang nhau khong");
     printf("\n20: Tim chuyen vi cua mot ma tran");
     printf("\n21: Tim dinh uoc cua ma tran");
@@ -962,15 +908,11 @@ int main()
                 break;
 
             case 9:
-                NhapSo(&n);
-                NhapMang(a,n);
-                Q9(a,n);
+                Q9();
                 break;
 
             case 10:
-                NhapSo(&n);
-                NhapMang(a,n);
-                Q10(a,n);
+                Q10();
                 break;
 
             case 11:
