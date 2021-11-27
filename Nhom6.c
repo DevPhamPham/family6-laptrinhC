@@ -866,10 +866,10 @@ int main()
     printf("\n6: Tinh tong cac phan tu chan trong mang");
     printf("\n7: Write a C function to print all Armstrong between 1 to n.");
     printf("\n8: Write a C function to print all Perfect between 1 to n.");
-    printf("\n9: Dem tong so phan tu trung lap trong mot mang");
-    printf("\n10: Xoa tat ca cac phan tu trung lap khoi mot mang");
-    printf("\n11: Dem tan so cua tung phan tu trong mang");
-    printf("\n12: Gop hai mang lai voi nhau");
+    printf("\n9: Convert Decimal to Binary number system.");
+    printf("\n10: Convert days into years, weeks, days.");
+    printf("\n11: Find the maximum of an integer array.");
+    printf("\n12: Find the minimum of an integer array.");
     printf("\n13: Write function to sum all number of an integer array.");
     printf("\n14: Write function to sum all non- positive number of an integer array.");
     printf("\n15: Sap xep mang tang dan");
@@ -880,6 +880,7 @@ int main()
     printf("\n20: Tim chuyen vi cua mot ma tran");
     printf("\n21: Tim dinh uoc cua ma tran");
     printf("\n24: Write to sort array elements in ascending order.");
+    printf("\n25: add two matrices.");
     printf("\n29: Write program to find transpope of a matrix.");
     printf("\n\t\tMoi ban cac so tren (Vui long chon dung neu khong se bi loi chuong trinh): \t");
 
