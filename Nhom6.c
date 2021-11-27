@@ -285,23 +285,68 @@ void Q4(int a[], int n)
     printf("\nSum all numbers :%d", sum);
 }
 
-void Q5(int a[], int n)
+void Q5()
 {
-    ;
-}
-
-void Q6(int a[], int n)
-{
-    int i, sum = 0;
-    for(i = 0;i< n;i++)
+    int n, i, s = 0;
+    printf("Question 5:\n");
+    printf("Enter n: ");
+    scanf("%d", &n);
+    if (n > 5)
     {
-            if (a[i] % 2 == 0){
-            sum += a[i];
-            }
+        for (i = 1; i < n; i ++)
+            if (n % i == 0)
+                s += i;
+        if (s == n)
+            printf("%d is a Perfect number.\n", n);
+        else
+            printf("%d is not a Perfect number.\n", n);
     }
-    printf("\nSum all even numbers : %d",sum);
+    else
+        printf("%d is not a Perfect number.\n", n);
 }
 
+bool Prime(int n)
+{
+    int i;
+    if (n < 2)
+        return false;
+    else
+    {
+        for (i = 2; i < n; i ++)
+            if (n % i == 0)
+                return false;
+        return true;
+    }
+}
+
+void Q6 ()
+{
+    int n, i;
+    printf("\nQuestion 6:");
+    EnterN (&n);
+    printf("Prime numbers between 1 to %d: ", n);
+    for (i = 1; i < n; i ++)
+        if (Prime (i) == true)
+            printf("%d ", i);
+}
+
+bool Armstrong(int n)
+{
+    int Du, Sum = 0, Temp = n;
+    while (n)
+    {
+        Du = n % 10;
+        Sum += Du*Du*Du;
+        n/=10;
+    }
+    if (Temp == Sum )
+    {
+        return true;
+    } else
+    {
+        return false;
+    }
+}
 bool Armstrong(int n)
 {
     int Du, Sum = 0, Temp = n;
@@ -501,140 +546,25 @@ void Q14(int a[], int n)
 
 void Q15(int a[], int n)
 {
-    
-
+    int i, s = 0;
+    for (i = 0; i < n; i ++)
+        if (a[i] % 2 == 0)
+            s += a[i];
+    printf("\nSum of all even numbers: %d\n", s);
 }
 
-void XuatMang2C(int a[][MAX], int n, int m)
+void Q16(int a[], int n)
 {
-	int i, j;
-	for (i = 0; i < n; i ++)
-	{
-		for (j = 0; j < m; j ++)
-		{
-			printf("%5d", a[i][j]);
-		}
-		printf("\n\n");
-	}
-}
-
-void NhapMang2CThuCong(int a[][MAX], int n, int m)
-{
-	int i, j;
-
-	int min, max, temp;
-
-    printf("\n\nGia tri nho nhat");
-    scanf("%d",&min);
-    printf("\n\nGia tri lon nhat");
-    scanf("%d",&max);
-
-    if (min > max)
+	int i, temp;
+    for (i = 0; i < n/2; i ++)
     {
-        temp = min;
-        min = max;
-        max = temp;
+        temp = a[i];
+        a[i] = a[n - 1 - i];
+        a[n - 1 - i] = temp;
     }
 
-	for (i = 0; i < n; i ++)
-		for (j = 0; j < m; j ++)
-		{
-			printf("Nhap phan tu [%d][%d]", i, j);
-			scanf("%d", a[i][j]);
-		}
-
-	XuatMang2C(a, n, m);
-}
-
-void NhapMang2CTuDong(int a[][MAX], int n, int m)
-{
-	int i, j;
-
-	int min, max, temp;
-
-    printf("\n\nGia tri nho nhat");
-    scanf("%d",&min);
-    printf("\n\nGia tri lon nhat");
-    scanf("%d",&max);
-
-    if (min > max)
-    {
-        temp = min;
-        min = max;
-        max = temp;
-    }
-
-	for (i = 0; i < n; i ++)
-		for (j = 0; j < m; j ++)
-		{
-			a[i][j] = rand()%(max - min + 1) + min;
-		}
-
-	printf("Mang vua nhap la:\n");
-	XuatMang2C(a, n, m);
-}
-
-void NhapMang2C(int a[][MAX], int n, int m)
-{
-    int choice;
-
-    do
-    {
-        printf("\n\nBan muon nhap mang thu cong hay tu dong");
-        printf("\n\nThu cong        Phim 0");
-        printf("\n\nTu dong         Phim 1");
-        printf("\n\nLua chon cua ban la: ");
-        scanf("%d",&choice);
-
-        switch (choice)
-        {
-        case 0:
-            NhapMang2CThuCong(a ,n, m);
-            break;
-
-        case 1:
-            NhapMang2CTuDong(a ,n, m);
-            break;
-
-        default:
-            printf("\n\nKhong co chuc nang nay. Vui long nhap lai.");
-            break;
-    }
-    } while (choice != 0 && choice != 1);
-
-
-}
-
-void Q16(int c[][MAX], int d[][MAX])
-{
-	int ca, ra, cb, rb;
-	int i = 0, j;
-
-	NhapHangCot(&ca, &ra, &cb , &rb);
-
-	if (ca != cb || ra != rb)
-    {
-        printf("\n\nPhep cong hai ma tran khong xac dinh");
-        return;
-    }
-
-	printf("\nNhap mang thu nhat:");
-	NhapMang2C(c,ra,ca);
-	printf("\nNhap mang thu hai:");
-    NhapMang2C(d,rb,cb);
-
-    int E[MAX][MAX];	// Ma tran E de luu tru gia tri cua phep cong.
-
-	printf("Ket qua phep cong la:\n");
-    for (i = 0; i < ra; i ++)				// for i de di qua tung dong
-	{
-		for (j = 0; j < ca; j ++)			// for j de qi qua tung cot
-		{
-			E[i][j] = c[i][j] + d[i][j];	// luu tru gia tri cua phep cong vao phan tu trong mang E
-			printf("%5d", E[i][j]);			// In ket qua phep cong
-		}
-		printf("\n\n");
-	}
+    printf("\nReversed array: ");
+    XuatMang(a, n);
 }
 
 void Q17(int c[][MAX], int d[][MAX])
@@ -776,6 +706,26 @@ void Q21()
 
 }
 
+void Q23(int a[], int n)
+{
+    int i, key;
+
+    printf("\nEnter key value: ");
+    scanf("%d", &key);
+
+    for (i = 0; i < n; i ++)
+    {
+        if (a[i] == key)
+        {
+            printf("Element %d is in array at position number %d.\n", key, i);
+            break;
+        }
+    }
+
+    if (i == n)
+        printf("Element %d is not in array.\n", key);
+}
+
 void Q24(int a[], int n)
 {
     printf("\n\nQuestion 24: Write a program to sort array elements in ascending order");
@@ -799,6 +749,107 @@ void Q24(int a[], int n)
     }
     XuatMang(a,n);
 
+}
+
+void XuatMang2C(int a[][MAX], int n, int m)
+{
+	int i, j;
+	for (i = 0; i < n; i ++)
+	{
+		for (j = 0; j < m; j ++)
+		{
+			printf("%5d", a[i][j]);
+		}
+		printf("\n\n");
+	}
+}
+
+void AutoMatrix(int a[][MAX], int r, int c)
+{
+	int min, max, i, j;
+
+    printf("Enter minumum value: ");
+    scanf("%d", &min);
+    printf("Enter maximum value: ");
+    scanf("%d", &max);
+    
+	for (i = 0; i < r; i ++)
+		for (j = 0; j < c; j ++)
+		{
+			a[i][j] = rand()%(max - min + 1) + min;
+		}
+
+	XuatMang2C(a, r, c);
+}
+
+void ManualMatrix(int a[][MAX], int r, int c)
+{
+	int i, j;
+    
+	for (i = 0; i < r; i ++)
+		for (j = 0; j < c; j ++)
+        {
+			printf("Element [%d][%d]", i, j);
+            scanf("%d", &a[i][j]);
+        }
+
+	XuatMang2C(a, r, c);
+}
+
+void NhapMang2C(int a[][MAX], int n, int m)
+{
+    int choice;
+
+    do
+    {
+        printf("\n\nBan muon nhap mang thu cong hay tu dong");
+        printf("\n\nThu cong        Phim 0");
+        printf("\n\nTu dong         Phim 1");
+        printf("\n\nLua chon cua ban la: ");
+        scanf("%d",&choice);
+
+        switch (choice)
+        {
+        case 0:
+            ManualMatrix(a ,n, m);
+            break;
+
+        case 1:
+            AutoMatrix(a ,n, m);
+            break;
+
+        default:
+            printf("\n\nKhong co chuc nang nay. Vui long nhap lai.");
+            break;
+        }   
+    } while (choice != 0 && choice != 1);
+
+}
+
+void Q28(int a[][MAX], int b[][MAX])
+{
+    int r, c, i, j, equal = 0;
+    printf("\nQuestion 28:\n");
+    printf("Enter number of rows and columns:\n");
+    printf("Enter number of rows: ");
+    scanf("%d", &r);
+    printf("Enter number of columns: ");
+    scanf("%d", &c);
+
+    NhapMang2C(a, r, c);
+    NhapMang2C(b, r, c);
+    
+    for (i = 0; i < r; i ++)
+    {
+		for (j = 0; j < c; j ++)
+			if (a[i][j] == b[i][j])
+                equal ++;
+    }
+
+    if (equal == r*c)
+        printf("Two matrices are equal.");
+    else
+        printf("Two matrices are not equal.");
 }
 
 void Q29()
@@ -918,17 +969,12 @@ int main()
                 break;
 
             case 5:
-                NhapSo(&n);
-                NhapMang(a,n);
-                Q5(a,n);
+                Q5();
                 break;
 
             case 6:
-                NhapSo(&n);
-                NhapMang(a,n);
-                Q6(a,n);
+                Q6();
                 break;
-
             case 7:
                 Q7();
                 break;
@@ -974,7 +1020,9 @@ int main()
                 break;
 
             case 16:
-                Q16(c,d);
+                NhapSo(&n);
+                NhapMang(a,n);
+                Q16(a,n);
                 break;
 
             case 17:
@@ -997,10 +1045,20 @@ int main()
                 Q21();
                 break;
 
+	    case 23:
+                NhapSo(&n);
+                NhapMang(a,n);
+                Q23(a,n);
+                break;
+		    
             case 24:
                 NhapSo(&n);
                 NhapMang(a,n);
                 Q24(a,n);
+                break;
+		    
+	    case 28:
+                Q28(c, d);
                 break;
 
             case 29:
