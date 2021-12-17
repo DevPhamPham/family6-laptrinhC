@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
-#include <stdbool.h>
 
 void NhapN(int *n)
 {
