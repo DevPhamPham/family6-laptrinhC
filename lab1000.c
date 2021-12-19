@@ -174,6 +174,126 @@ void Q31()
     }
 }
 
+void Cau21()
+{
+    int n, i, s = 0;
+    NhapN(&n);
+    for (i = 1; i < n; i ++)
+    {
+        if (n % i == 0)
+            s += i;
+    }
+    printf("Tong tat ca uoc so cua %d la: %d", n, s);
+}
+
+void Cau22()
+{
+    int n, i, p = 1;
+    NhapN(&n);
+    for (i = 1; i < n; i ++)
+    {
+        if (n % i == 0)
+            p *= i;
+    }
+    printf("Tich tat ca uoc so cua %d la: %d", n, p);
+}
+
+void Cau23()
+{
+    int n, i, s = 0;
+    NhapN(&n);
+    for (i = 1; i < n; i ++)
+    {
+        if (n % i == 0)
+            s += 1;
+    }
+    printf("So luong uoc so cua %d la: %d", n, s);
+}
+
+void Cau24()
+{
+    int n, i;
+    NhapN(&n);
+    printf("Tat ca uoc so le cua %d la: ", n);
+    for (i = 1; i < n; i ++)
+    {
+        if (n % i == 0 && i % 2 != 0)
+            printf("%d ", i);
+    }
+}
+
+void Cau25()
+{
+    int n, i, s = 0;
+    NhapN(&n);
+    for (i = 1; i < n; i ++)
+    {
+        if (n % i == 0 && i % 2 == 0)
+            s += i;
+    }
+    printf("Tong tat ca uoc so chan cua %d la: %d\n", n, s);
+}
+
+void Cau47()
+{
+    int n, s = 0;
+    NhapN(&n);
+    printf("Tong cac chu so chan cua %d la: ", n);
+    while (n > 0)
+    {
+        if (n % 10 % 2 == 0)
+            s += n % 10;
+        n /= 10;
+    }
+    printf("%d", s);
+}
+
+void Cau48()
+{
+    int n, p = 1;
+    NhapN(&n);
+    printf("Tich cac chu so le cua %d la: ", n);
+    while (n > 0)
+    {
+        if (n % 10 % 2 != 0)
+            p *= n % 10;
+        n /= 10;
+    }
+    printf("%d", p);
+}
+
+void Cau49()
+{
+    int n;
+    NhapN(&n);
+    printf("Chu so dau tien cua %d la: ", n);
+    while (n >= 10)
+    {
+        n /= 10;
+    }
+    printf("%d", n);
+}
+
+void Cau50()
+{
+    int n, i = 0, rn = 0;
+    NhapN(&n);
+    int k = n;
+    while (k > 0)
+    {
+    	k /= 10;
+    	i ++;
+	}
+    printf("Chu so dao nguoc cua %d la: ", n);
+    while (n > 0)
+    {
+    	i --;
+        rn += n % 10 * pow(10, i);
+        n /= 10;
+    }
+    printf("%d", rn);
+}
+
 int main()
 {
     int choice,n;
@@ -196,12 +316,21 @@ int main()
         printf("\n\n13: Tinh S(n) = x^2 + x^4 + ⋯ + x^2n");
         printf("\n\n14: Tinh S(n) = x + x^3 + x^5 ... + x^2n+1");
         printf("\n\n15: Tinh S(n) = 1 + 1/(1+ 2)+1/(1+2+3)+ ... + 1/(1+2+...+n)");
+        printf("\n\n21: Tinh tong tat ca uoc so cua so nguyen duong n.");
+        printf("\n\n22: Tinh tich tat ca uoc so cua so nguyen duong n.");
+        printf("\n\n23: Dem so luong uoc so cua so nguyen duong n.");
+        printf("\n\n24: Liet ke tat ca uoc so le cua so nguyen duong n.");
+        printf("\n\n25: Tinh tong tat ca uoc so chan cua so nguyen duong n.");
         printf("\n\n29: Tim uoc so le lon nhat cua so nguyen duong n.");
         printf("\n\n30: Kiem tra so nguyen duong N co phai so hoan thien hay khong.");
         printf("\n\n31: Kiem tra so nguyen duong N co phai so nguyen to hay khong.");
         printf("\n\n32: Cho so nguyen duong n. Kiem tra so nguyen duong n co phai la so chinh phuong hay khong?");
         printf("\n\n42: Cho n la so nguyen duong. Hay tim gia tri nguyen duong k lon nhat sao cho S(k) < n. Trong do chuoi S duoc dinh nghia nhu sau: S(k)=1+2+3+...+k.");
         printf("\n\n43: Hay Dem so luong chu so cua so nguyen duong n");
+        printf("\n\n47: Tinh tong cac chu so chan cua so nguyen duong n");
+        printf("\n\n48: Tinh tich cac chu so le cua so nguyen duong n");
+        printf("\n\n49: Tim chu so dau tien cua so nguyen duong n");
+        printf("\n\n50: Tim chu so dao nguoc cua so nguyen duong n");
         printf("\n\nNhap lua chon cua ban: ");
         scanf("%d", &choice);
 
@@ -241,6 +370,23 @@ int main()
     case 15:
         bai15();
         break;
+    
+    case 21:
+        Cau21();
+        break;
+    case 22:
+        Cau22();
+        break;
+    case 23:
+        Cau23();
+        break;
+    case 24:
+        Cau24();
+        break;
+    case 25:
+        Cau25();
+        break;
+                
     case 32:
         bai32();
         break;
@@ -251,6 +397,19 @@ int main()
         bai43();
         break;
 
+    case 47:
+        Cau47();
+        break;
+    case 48:
+        Cau48();
+        break;
+    case 49:
+        Cau49();
+        break;
+    case 50:
+        Cau50();
+        break;  
+                
     case 6:
         Q6();
         break;
