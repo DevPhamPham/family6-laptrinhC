@@ -12,12 +12,13 @@ int B13(int ,int);
 void bai14();
 int B14(int ,int);
 void bai15();
-int B15(int ,int);
+float B15(int ,int);
 void bai32();
 void bai42();
 void bai43();
 int findKB42(int,int n,int,int,int);
 int demsSo43(int n,int c);
+float mainB15(int n,float sum);
 void NhapN(int *n)
 {
     do
@@ -353,13 +354,18 @@ void bai15(){
     int n,x;
     printf("\nBai15: Nhap n: ");
     scanf("%d", &n);
-    printf("\n\tnhap x: ");
-    scanf("%d", &x);
-    printf("\nS = %d",B15(n,x));
+    printf("\nS = %f",mainB15(n,0.0));
 }
-int B15(int n,int x){
-    if (n < 0) return 0;
-    return pow(x,2*n+1)+B15(n-1,x);
+float mainB15(int n,float sum){
+    if (n==0) return sum;
+    // printf("\n%f",B15(n,0));
+    sum+=(float)1/(float)B15(n,0);
+    return mainB15(n-1,sum);
+}
+float B15(int n,int sum){
+    if (n == 0) return sum;
+    sum+=n;
+    return B15(n-1,sum);
 }
 void bai32(){
     int n,i;
