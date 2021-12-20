@@ -1,20 +1,86 @@
 #include <stdio.h>
 #include <stdbool.h>
-#define max 100
+#include <stdlib.h>
+#include <time.h>
+#define MAX 30
 
-
-void bai2();
-int BinarySearch(int x,int a[max],int n);
-int main()
+void XuatMang(int a[], int n)
 {
-    int choice,n;
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d\t", a[i]);
+    }
+    
+}
+
+void NhapMang(int a[], int *n)
+{
+    int min, max;
     do
     {
-        printf("\n\nCau 1: Tinh giai thua n");
+        printf("\n\nNhap so phan tu cua mang: ");
+        scanf("%d", &*n);
+        if (*n < 1 || *n > MAX)
+        {
+            printf("\n\nNhap sai. Vui long nhap lai.");
+        }
+        
+    } while (*n < 1 || *n > MAX);
+
+    printf("\n\nNhap khoang random: ");
+    printf("\n\nMin: ");
+    scanf("%d", &min);
+    printf("\n\nMax: ");
+    scanf("%d", &max);
+
+    for (int i = 0; i < *n; i++)
+    {
+        a[i] = rand() % (max - min + 1) + min ;
+    }
+    printf("\n\nMang da nhap:\n");
+    XuatMang(a, *n);
+}
+
+void SelectionSort(int a[], int n)
+{
+    int temp, max, start;
+    for (int start = 0; start < n - 1; start++)
+    {
+        max = start;
+        for (int i = start + 1; i < n; i++)
+        {
+            if (a[max] < a[i])
+            {
+                max = i;
+            }
+        }
+        temp = a[start];
+        a[start] = a[max];
+        a[max] = temp;
+    }
+    printf("\n\nMang sau khi sap xep:\n");
+    XuatMang(a, n);
+}
+
+void Q3()
+{
+    int a[MAX], n;
+    NhapMang(a, &n);
+    SelectionSort(a, n);
+}
+void bai2();
+int BinarySearch(int x,int a[MAX],int n);
+
+int main()
+{
+    srand(time(NULL));
+    int choice;
+    do
+    {
+        printf("\n\nCau 1: ");
         printf("\n\nCau 2: Implement the binary search algorithm.");
-        printf("\n\nCau 3: Tinh tich le");
-        printf("\n\nCau 4: Tinh tong binh phuong");
-        printf("\n\nCau 5: Kiem tra n co toan le");
+        printf("\n\nCau 3: Implement the selection sort algorithm for sorting a list in descendent list. ");
+        printf("\n\nCau 4: ");
         printf("\n\nNhap lua chon cua ban: ");
         scanf("%d", &choice);
 
@@ -29,18 +95,12 @@ int main()
         break;
 
     case 3:
-        
+        Q3();
         break;
 
     case 4:
         
         break;
-
-    case 5:
-        
-        break;
-
-    
 
     default:
         printf("\n\nKhong co lua chon nay. Vui long nhap lai");
@@ -56,27 +116,25 @@ int main()
 }
 
 void bai2(){
-    int a[max],n,x;
-    printf("\n Nhap n: ");
-    scanf("%d",&n);
-    for (int i = 0; i < n; i++) {
-        printf("\nNhap phan tu thu %d: ",i);
-        scanf("%d",&a[i]);
-    }
+    int a[MAX],n,x;
+    // printf("\n Nhap n: ");
+    // scanf("%d",&n);
+    NhapMang(a, &n);
+    SelectionSort(a, n);
     printf("\nNhap phan tu can tiem kiem: ");
     scanf("%d",&x);
     printf("\nPhan tu %d nam o vi tri %d\n",x,BinarySearch(x,a,n));
 }
-int BinarySearch(int x,int a[max],int n){
+int BinarySearch(int x,int a[MAX],int n){
     int left=0,right=n-1;
     while (left<=right) {
         int mid = (left+right)/2;
         if (x==a[mid]){
             return mid;
         } else if (x<a[mid]){
-            right=mid-1;
-        } else {
             left=mid+1;
+        } else {
+            right=mid-1;
         }
     }
     return -1;
